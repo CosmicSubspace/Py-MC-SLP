@@ -96,20 +96,3 @@ def get_mc_server_status(host,port=25565):
 	skt.close()
 
 	return jdat
-
-if __name__=="__main__":
-	try:
-		host=sys.argv[1]
-		if len(sys.argv)>2:
-			port=int(sys.argv[2])
-		else:
-			port=25565
-	except:
-		print("Usage: python3 pymcslp.py HOST [PORT]")
-		sys.exit(1)
-	print("Checking server at",host,port)
-	stat=get_mc_server_status(host,port)
-	print("Version:",stat["version"]["name"])
-	print("Max:",stat["players"]["max"])
-	print("Online:",stat["players"]["online"])
-	print("Description:",stat["description"])
